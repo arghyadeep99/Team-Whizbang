@@ -54,9 +54,9 @@ Paper Kit 2 Angular is built on top of Bootstrap 4, so it fully supports it. Mos
 
 Quick start options:
 
-- [Download from Github](https://github.com/creativetimofficial/pk2-angular.git).
+- [Download from Github](https://github.com/creativetimofficial/TeamWhizbang.git).
 - [Download from Creative Tim](https://www.creative-tim.com/product/paper-kit-2-angular).
-- Clone the repo: `git clone https://github.com/creativetimofficial/pk2-angular.git`.
+- Clone the repo: `git clone https://github.com/creativetimofficial/TeamWhizbang.git`.
 
 
 ## Documentation
