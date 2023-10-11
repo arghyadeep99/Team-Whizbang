@@ -13,18 +13,51 @@
                             class="nc-icon nc-book-bookmark"></i> Case Registered</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" (click)="journeyStatus(2)" class="btn btn-primary btn-round"><i class="nc-icon nc-book-bookmark"></i>
+                    <button type="button" (click)="journeyStatus(2)" class="btn btn-primary btn-round"><i
+                            class="nc-icon nc-book-bookmark"></i>
                         Case Sessions </button>
                 </div>
                 <div class="col-3">
-                    <button type="button" (click)="journeyStatus(2)" class="btn btn-info btn-round"><i class="nc-icon nc-book-bookmark"></i>
+                    <button type="button" (click)="journeyStatus(3)" class="btn btn-info btn-round"><i
+                            class="nc-icon nc-book-bookmark"></i>
                         Session Feedback</button>
                 </div>
                 <div class="col-3">
-                    <button type="button" (click)="journeyStatus(4)" class="btn btn-success btn-round"><i class="nc-icon nc-book-bookmark"></i>
+                    <button type="button" (click)="journeyStatus(4)" class="btn btn-success btn-round"><i
+                            class="nc-icon nc-book-bookmark"></i>
                         Case Closed</button>
                 </div>
             </div>
+            <div *ngIf="userJourney == 1">
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto text-center">
+                                <h4 class="tim-title">Registration Date: </h4>
+                                <p class="description">Upcoming Sessions Date: </p>
+                                <p class="description">Number of Sessions registered: 10</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="userJourney == 2">
+               
+            </div>
+            <div *ngIf="userJourney == 3">
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto text-center">
+                                <h4 class="tim-title">Registration Date: </h4>
+                                <p class="description">Upcoming Sessions Date: </p>
+                                <p class="description">Number of Sessions registered: 10</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div *ngIf="userJourney == 4">
                 <img src="assets/img/case-closed.png" alt="Case Closed" class="center" style>

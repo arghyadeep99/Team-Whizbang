@@ -14,7 +14,6 @@ import { ExamplesModule } from './examples/examples.module';
 import { ReferralComponent } from './referral/referral.component';
 import { UserJourneyComponent } from './user-journey/user-journey.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +29,7 @@ import { UserJourneyComponent } from './user-journey/user-journey.component';
     RouterModule,
     ComponentsModule,
     ExamplesModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
