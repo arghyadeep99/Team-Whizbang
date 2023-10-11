@@ -1,0 +1,73 @@
+<div class="section section-buttons">
+    <div class="container">
+        <div class="tim-title">
+            <h3>Manage Appointments</h3>
+        </div>
+        <hr />
+        <div>
+            <div class="tim-title">
+                <h4 class="status-header">Active</h4>
+            </div>
+            <div class="row">
+                <ng-container *ngFor="let appointment of active">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>{{ appointment.title }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Date & Time: {{ appointment.dateTime | date:'medium' }}</p>
+                                
+                                <div class="row mt-2">
+                                    <div class="col-md-8">
+                                        <button type="button" class="btn btn-danger btn-round">SOS</button>
+                                        <button type="button" class="btn btn-primary btn-round ms-4">Check Out</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <hr />
+            <div class="tim-title">
+                <h4 class="status-header">Upcoming</h4>
+            </div>
+            <div class="row">
+                <ng-container *ngFor="let appointment of upcoming">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>{{ appointment.title }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Date & Time: {{ appointment.dateTime | date:'medium' }}</p>
+                                <button *ngIf="isCheckInVisible(appointment.dateTime)"
+                                    class="btn btn-success btn-round mt-2">Check-In</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <hr />
+            <div class="tim-title">
+                <h4 class="status-header">Completed</h4>
+            </div>
+            <div class="row">
+                <ng-container *ngFor="let appointment of completed">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>{{ appointment.title }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Date & Time: {{ appointment.dateTime | date:'medium' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
