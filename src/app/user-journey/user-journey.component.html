@@ -1,0 +1,37 @@
+<div class="section section-buttons">
+    <div class="container">
+
+        <div id="buttons">
+            <div class="tim-title">
+                <h3>Case Journey
+                    <br />
+                </h3>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <button type="button" (click)="journeyStatus(1)" class="btn btn-warning btn-round"><i
+                            class="nc-icon nc-book-bookmark"></i> Case Registered</button>
+                </div>
+                <div class="col-3">
+                    <button type="button" (click)="journeyStatus(2)" class="btn btn-primary btn-round"><i class="nc-icon nc-book-bookmark"></i>
+                        Case Sessions </button>
+                </div>
+                <div class="col-3">
+                    <button type="button" (click)="journeyStatus(2)" class="btn btn-info btn-round"><i class="nc-icon nc-book-bookmark"></i>
+                        Session Feedback</button>
+                </div>
+                <div class="col-3">
+                    <button type="button" (click)="journeyStatus(4)" class="btn btn-success btn-round"><i class="nc-icon nc-book-bookmark"></i>
+                        Case Closed</button>
+                </div>
+            </div>
+
+            <div *ngIf="userJourney == 4">
+                <img src="assets/img/case-closed.png" alt="Case Closed" class="center" style>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

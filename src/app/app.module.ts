@@ -13,6 +13,7 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { ReferralComponent } from './referral/referral.component';
 import { ManageAppointmentsComponent } from './manage-appointments/manage-appointments.component';
+import { UserJourneyComponent } from './user-journey/user-journey.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ManageAppointmentsComponent } from './manage-appointments/manage-appoin
     NavbarComponent,
     FooterComponent,
     ReferralComponent,
-    ManageAppointmentsComponent
+    ManageAppointmentsComponent,
+    UserJourneyComponent
   ],
   imports: [
     BrowserModule,
