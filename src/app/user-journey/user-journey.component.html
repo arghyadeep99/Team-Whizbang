@@ -42,32 +42,32 @@
                 </div>
             </div>
             <div *ngIf="userJourney == 2">
-                <br />
-                <section class="accordion accordion--radio">
-                    <div class="tab">
-                        <input type="radio" name="accordion-2" id="rd1">
-                        <label for="rd1" class="tab__label">Radio</label>
-                        <div class="tab__content">
-                            <p>If you want to have only one tab open, you can use
-                                <code>&lt;input type="checkbox"&gt;</code>.
-                            </p>
+
+                <!-- <section class="accordion accordion--radio">
+                        <div class="tab">
+                            <input type="radio" name="accordion-2" id="rd1">
+                            <label for="rd1" class="tab__label"></label>
+                            <div class="tab__content">
+                                <p>If you want to have only one tab open, you can use
+                                    <code>&lt;input type="checkbox"&gt;</code>.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tab">
-                        <input type="radio" name="accordion-2" id="rd2">
-                        <label for="rd2" class="tab__label">Open single</label>
-                        <div class="tab__content">
-                            <p>But if you wanna close the opened tab, you must add a "close" button somewhere, like the
-                                one below, that is just another styled radio input.</p>
+                        <div class="tab">
+                            <input type="radio" name="accordion-2" id="rd2">
+                            <label for="rd2" class="tab__label">Open single</label>
+                            <div class="tab__content">
+                                <p>But if you wanna close the opened tab, you must add a "close" button somewhere, like
+                                    the
+                                    one below, that is just another styled radio input.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tab">
-                        <input type="radio" name="accordion-2" id="rd3">
-                        <label for="rd3" class="tab__close">Close open tab &times;</label>
-                    </div>
-                </section>
-            </div>
-            <div *ngIf="userJourney == 3">
+                        <div class="tab">
+                            <input type="radio" name="accordion-2" id="rd3">
+                            <label for="rd3" class="tab__close">Close open tab &times;</label>
+                        </div>
+                    </section> -->
+
                 <div class="section section-buttons">
                     <div>
                         <div class="tim-title">
@@ -84,8 +84,6 @@
                                             <p class="card-text">Date & Time: {{ appointment.dateTime |
                                                 date:'medium' }}</p>
                                             <p class="card-text">Therapist: {{ appointment.therapist |
-                                                date:'medium' }}</p>
-                                            <p class="card-text">Feedback: {{ appointment.feedback |
                                                 date:'medium' }}</p>
 
 
@@ -110,8 +108,6 @@
                                                 date:'medium' }}</p>
                                             <p class="card-text">Therapist: {{ appointment.therapist |
                                                 date:'medium' }}</p>
-                                            <p class="card-text">Feedback: {{ appointment.feedback |
-                                                date:'medium' }}</p>
                                         </div>
 
                                     </div>
@@ -134,6 +130,70 @@
                                                 date:'medium' }}</p>
                                             <p class="card-text">Therapist: {{ appointment.therapist |
                                                 date:'medium' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div *ngIf="userJourney == 3">
+                <div class="section section-buttons">
+                    <div>
+                        <div class="tim-title">
+                            <h4 class="status-header">Active</h4>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let appointment of active">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>{{ appointment.title }}</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text">Feedback: {{ appointment.feedback |
+                                                date:'medium' }}</p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <hr />
+                        <div class="tim-title">
+                            <h4 class="status-header">Upcoming</h4>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let appointment of upcoming">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>{{ appointment.title }}</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text">Feedback: {{ appointment.feedback |
+                                                date:'medium' }}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <hr />
+                        <div class="tim-title">
+                            <h4 class="status-header">Completed</h4>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let appointment of completed">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>{{ appointment.title }}</h5>
+                                        </div>
+                                        <div class="card-body">
                                             <p class="card-text">Feedback: {{ appointment.feedback |
                                                 date:'medium' }}</p>
                                         </div>
