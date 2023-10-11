@@ -14,6 +14,8 @@ import { ExamplesModule } from './examples/examples.module';
 import { ReferralComponent } from './referral/referral.component';
 import { ManageAppointmentsComponent } from './manage-appointments/manage-appointments.component';
 import { UserJourneyComponent } from './user-journey/user-journey.component';
+import { ManageTherapistComponent } from './manage-therapist/manage-therapist.component';
+import { ManageSessionsComponent } from './manage-sessions/manage-sessions.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { UserJourneyComponent } from './user-journey/user-journey.component';
     FooterComponent,
     ReferralComponent,
     ManageAppointmentsComponent,
-    UserJourneyComponent
+    UserJourneyComponent,
+    ManageTherapistComponent,
+    ManageSessionsComponent
   ],
   imports: [
     BrowserModule,
