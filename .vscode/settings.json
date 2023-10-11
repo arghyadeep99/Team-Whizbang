@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/eb30ba0e-e39d-4f50-bcd7-410f41f7fe08/resourceGroups/RG_TeamWhizbang/providers/Microsoft.Web/sites/codefest-ui",
+    "appService.deploySubpath": "dist"
+}
