@@ -12,6 +12,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { ReferralComponent } from './referral/referral.component';
+import { ManageAppointmentsComponent } from './manage-appointments/manage-appointments.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReferralComponent } from './referral/referral.component';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    ReferralComponent
+    ReferralComponent,
+    ManageAppointmentsComponent
   ],
   imports: [
     BrowserModule,
