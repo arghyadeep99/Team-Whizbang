@@ -12,9 +12,9 @@ export class ManageUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  therapists = [
+  users = [
     {
-      user_type: 'Therapist',
+      user_type: 'User',
       first_name: 'John',
       last_name: 'Doe',
       email: 'john.doe@example.com',
@@ -27,7 +27,7 @@ export class ManageUserComponent implements OnInit {
       post_code: '12345',
     },
     {
-      user_type: 'Therapist',
+      user_type: 'User',
       first_name: 'John',
       last_name: 'Doe',
       email: 'john.doe@example.com',
@@ -40,7 +40,7 @@ export class ManageUserComponent implements OnInit {
       post_code: '12345',
     },
     {
-      user_type: 'Therapist',
+      user_type: 'User',
       first_name: 'John',
       last_name: 'Doe',
       email: 'john.doe@example.com',
