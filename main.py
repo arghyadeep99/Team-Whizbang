@@ -1,3 +1,4 @@
+import json
 from typing import Union
 
 from fastapi import Depends, FastAPI
@@ -46,15 +47,27 @@ def connection_cursor():
     con = pymssql.connect(server=DB_HOST, database=DB_NAME, user=DB_USER, password=DB_PASSWORD)
     return con.cursor()
 
+
 @app.get("/helloworld")
 def test():
     return {"Hello": "World"}
 
+
 @app.get("/clients/{client_id}/get_all_cases")
-async def get_client_cases(client_id: int):
+async def get_client_all_cases(client_id: int):
     cur = connection_cursor()
     cur.execute(f'SELECT * FROM cases WHERE user_id={client_id} order by updated_at asc')
     results = cur.fetchall()
+    for row in results:
+        print(row)
+    return results
+
+
+@app.get("/sessions/{session_id}/get_details")
+async def get_all_session_details(session_id: int):
+    cur = connection_cursor()
+    cur.execute(f'SELECT * FROM sessions WHERE session_id={session_id}')
+    results = cur.fetchall()    
     for row in results:
         print(row)
     return results
@@ -71,10 +84,41 @@ async def get_client_details(client_id: int):
 
 
 @app.get("/cases/{case_id}/get_details")
-async def get_client_details(case_id: int):
+async def get_case_details(case_id: int):
     cur = connection_cursor()
     cur.execute(f'SELECT * FROM cases WHERE case_id={case_id}')
     results = cur.fetchall()    
     for row in results:
         print(row)
     return results
+
+
+@app.get("/cases/{case_id}/get_all_session_details")
+async def get_all_sessions_details(case_id: int):
+    cur = connection_cursor()
+    cur.execute(f'SELECT * FROM sessions WHERE case_id={case_id}')
+    results = cur.fetchall()    
+    for row in results:
+        print(row)
+    return results
+
+
+@app.get("/sessions/{session_id}/get_details")
+async def get_session_details(session_id: int):
+    cur = connection_cursor()
+    cur.execute(f'SELECT * FROM sessions WHERE session_id={session_id}')
+    results = cur.fetchall()    
+    for row in results:
+        print(row)
+    return results
+
+
+@app.get("/therapist/{user_id}/get_details")
+async def get_therapist_details(user_id: int):
+    cur = connection_cursor()
+    cur.execute(f'SELECT * FROM therapist WHERE user_id={user_id}')
+    results = cur.fetchall()    
+    for row in results:
+        print(row)
+    return results
+
