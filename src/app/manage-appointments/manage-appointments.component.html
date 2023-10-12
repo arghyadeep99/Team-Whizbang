@@ -17,12 +17,12 @@
                             </div>
                             <div class="card-body">
                                 <p class="card-text">Date & Time: {{ appointment.dateTime | date:'medium' }}</p>
-                                
+                                {{checkin}} {{checkout}} {{sos}}
                                 <div class="row">
                                     <div class="col">
-                                        <button type="button" class="btn btn-danger btn-round" (click)="getLocation()">SOS</button>
-                                        <button type="button" class="btn btn-primary btn-round ms-4" (click)="getLocation()">Check In</button>
-                                        <button type="button" class="btn btn-primary btn-round ms-4" (click)="getLocation()">Check Out</button>
+                                        <button [disabled]="sos" type="button" class="btn btn-danger btn-round" (click)="getLocationsos()">SOS</button>
+                                        <button [disabled]="checkin" id="checkin" type="button" class="btn btn-primary btn-round ms-4" (click)="getLocationcheckin()">Check In</button>
+                                        <button [disabled]="checkout" id="checkout"type="button" class="btn btn-primary btn-round ms-4" (click)="getLocationcheckout()">Check Out</button>
                                     </div>
                                 </div>
                             </div>

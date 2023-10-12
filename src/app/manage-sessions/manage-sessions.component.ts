@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 
 export class ManageSessionsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
+  details: any
   ngOnInit(): void {
+    this.callsesion()
+  }
+
+  header = new HttpHeaders({
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Access-Control-Allow-Origin": "https://whizbang-codefest-api.azurewebsites.net"
+  })
+
+  callsesion() {
+    this.http.post("https://whizbang-codefest-api.azurewebsites.net/sessions/7/get_details", { headers: this.header })
+      .subscribe({
+        next: (data) => {
+          this.details = data
+
+        },
+        error: (error) => {
+          console.error('Error while performing reverse geocoding:', error);
+        }
+      });
+
   }
 
   active = [

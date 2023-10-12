@@ -9,17 +9,18 @@
                 <h4 class="status-header">Active Sessions</h4>
             </div>
             <div class="row">
-                <ng-container *ngFor="let appointment of active">
+                <ng-container >
                     <div class="col-4">
                         <div class="card">
                             <div class="card-header primary">
-                                <h5>{{ appointment.title }}</h5>
+                                <h5>Appointment 1</h5>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Therapist: <b>{{ appointment.therapistName }}</b></p>
-                                <p class="card-text">Start Date: <b>{{ appointment.dateTime | date:'medium' }}</b></p>
-                                <p class="card-text">End Date: <b>{{ appointment.endTime | date:'medium' }}</b></p>
-                                <p class="card-text">Checked IN: <b>{{ appointment.endTime | date:'medium' }}</b></p>
+                                <p class="card-text">Location: <b>{{details[12]}}</b></p>
+                                <p class="card-text">Therapist: <b>Ritika</b></p>
+                                <p class="card-text">Start Date: <b>2023-10-12T01:15:00</b></p>
+                                <p class="card-text">End Date: <b>2023-10-12T01:15:00</b></p>
+                                <p class="card-text">Checked IN: <b>{{ details[15] | date:'medium' }}</b></p>
                             </div>
                         </div>
                     </div>
@@ -30,17 +31,18 @@
                 <h4 class="status-header">SOS Sessions</h4>
             </div>
             <div class="row">
-                <ng-container *ngFor="let appointment of sos">
+                <ng-container >
                     <div class="col-4">
                         <div class="card">
-                            <div class="card-header tomato">
-                                <h5>{{ appointment.title }}</h5>
+                            <div class="card-header primary">
+                                <h5>Appointment 1</h5>
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Therapist: <b>{{ appointment.therapistName }}</b></p>
-                                <p class="card-text">Start Date: <b>{{ appointment.dateTime | date:'medium' }}</b></p>
-                                <p class="card-text">End Date: <b>{{ appointment.endTime | date:'medium' }}</b></p>
-                                <p class="card-text">Checked IN: <b>{{ appointment.endTime | date:'medium' }}</b></p>
+                                <p class="card-text">Location: <b>{{details[12]}}</b></p>
+                                <p class="card-text">Therapist: <b>Ritika</b></p>
+                                <p class="card-text">Start Date: <b>2023-10-12T01:15:00</b></p>
+                                <p class="card-text">End Date: <b>2023-10-12T01:15:00</b></p>
+                                <p class="card-text">Checked IN: <b>{{ details[15] | date:'medium' }}</b></p>
                             </div>
                         </div>
                     </div>
