@@ -5,10 +5,13 @@ from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 # from sqlalchemy.orm import Session
-
+from dotenv import load_dotenv
 import pymssql
+import os
 
 app = FastAPI(version="1.0.2")
+
+load_dotenv()
 
 origins = [
     "https://codefest-ui.azurewebsites.net",
@@ -26,6 +29,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_NAME = os.getenv("DB_NAME")
 
 # async def get_db():
 #     db = SessionLocal()
@@ -34,6 +42,9 @@ app.add_middleware(
 #     finally:
 #         db.close()
 
+def connection_cursor():
+    con = pymssql.connect(server=DB_HOST, database=DB_NAME, user=DB_USER, password=DB_PASSWORD)
+    return con.cursor()
 
 @app.get("/helloworld")
 def test():
@@ -41,11 +52,8 @@ def test():
 
 @app.get("/clients/{client_id}/get_all_cases")
 async def get_client_cases(client_id: int):
-    con = pymssql.connect(server='whizbang-db-server.database.windows.net', database='whizbang-database', user='whizbangadmin', password='WA@123456')
-    cur = con.cursor()
+    cur = connection_cursor()
     cur.execute(f'SELECT top(1) * FROM cases WHERE user_id={client_id} order by updated_at asc')
-    # cur.execute("SELECT Distinct TABLE_NAME FROM information_schema.TABLES")
-    # print(res)
     results = cur.fetchall()    
     for row in results:
             print(row)
