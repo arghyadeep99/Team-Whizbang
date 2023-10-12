@@ -13,6 +13,7 @@ export class AdminDashboardComponent implements OnInit {
   funds: any
   counsellor: any
   highrisk: any
+  total: any
   constructor(private http: HttpClient) { }
 
   header = new HttpHeaders({
@@ -55,10 +56,26 @@ export class AdminDashboardComponent implements OnInit {
       }
     })
 
+    this.http.get("https://whizbang-codefest-api.azurewebsites.net/cases/closed", { headers: this.header }).subscribe(data => {
+      if (data != undefined) {
+        this.counsellor = data
+        console.log(this.counsellor)
+
+      }
+    })
+
     this.http.get("https://whizbang-codefest-api.azurewebsites.net/cases/highrisk", { headers: this.header }).subscribe(data => {
       if (data != undefined) {
         this.highrisk = data
         console.log(this.highrisk)
+
+      }
+    })
+
+    this.http.get("https://whizbang-codefest-api.azurewebsites.net/cases/total", { headers: this.header }).subscribe(data => {
+      if (data != undefined) {
+        this.total = data
+        console.log(this.total)
 
       }
     })

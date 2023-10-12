@@ -17,7 +17,7 @@
                             </div>
                             <div class="card-body">
                                 <p class="card-text">Date & Time: {{ appointment.dateTime | date:'medium' }}</p>
-                                {{checkin}} {{checkout}} {{sos}}
+                                
                                 <div class="row">
                                     <div class="col">
                                         <button [disabled]="sos" type="button" class="btn btn-danger btn-round" (click)="getLocationsos()">SOS</button>

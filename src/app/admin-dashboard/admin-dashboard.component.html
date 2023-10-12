@@ -9,7 +9,8 @@
             </div>
 
             <div class="col-4 align-self-end">
-                <button type="button" class="btn btn-outline-primary btn-round float-right" [routerLink]="['/add-funds']"><i class="fa fa-plus-circle"></i> Add Funds</button>
+                <button type="button" class="btn btn-outline-primary btn-round float-right"
+                    [routerLink]="['/add-funds']"><i class="fa fa-plus-circle"></i> Add Funds</button>
             </div>
         </div>
         <hr />
@@ -22,7 +23,7 @@
                     <div class="card">
                         <div class="card-header text-center primary" routerLink="/manage-users">
                             <i class="fa fa-users mt-3 mb-3" style="font-size: 32px;"></i>
-                            <br/>
+                            <br />
                             <h5>Users</h5>
                         </div>
                     </div>
@@ -33,7 +34,7 @@
                     <div class="card">
                         <div class="card-header text-center primary" routerLink="/manage-therapist">
                             <i class="fa fa-user-md mt-3 mb-3" style="font-size: 32px;"></i>
-                            <br/>
+                            <br />
                             <h5>Therapist</h5>
                         </div>
                     </div>
@@ -44,7 +45,7 @@
                     <div class="card">
                         <div class="card-header text-center primary" routerLink="/manage-sessions">
                             <i class="fas fa fa-clock mt-3 mb-3" style="font-size: 32px;"></i>
-                            <br/>
+                            <br />
                             <h5>Sessions</h5>
                         </div>
                     </div>
@@ -55,36 +56,25 @@
                     <div class="card">
                         <div class="card-header text-center primary" routerLink="/manage-appointments">
                             <i class="fa fa-calendar mt-3 mb-3" style="font-size: 32px;"></i>
-                            <br/>
+                            <br />
                             <h5>Appointments</h5>
                         </div>
                     </div>
                 </div>
             </ng-container>
-            
+
         </div>
         <div class="tim-title">
             <h4 class="status-header">Cases</h4>
         </div>
         <div class="row">
             <ng-container>
-                <div class="col-6"> <!-- Set col-12 class here -->
-                    <div class="card">
-                        <div class="card-header text-center danger" routerLink="/manage-users">
-                            <span style="font-size: 32px;">{{highrisk}}</span>
-                            <br/>
-                            <h5>High Risk</h5>
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
-            <ng-container>
-                <div class="col-6"> <!-- Set col-12 class here -->
+                <div class="col-4"> <!-- Set col-12 class here -->
                     <div class="card">
                         <div class="card-header text-center secondary" routerLink="/manage-therapist">
-                            <span style="font-size: 32px;">{{referred}}</span>
-                            <br/>
-                            <h5>Referred to NHS</h5>
+                            <span style="font-size: 32px;">{{total}}</span>
+                            <br />
+                            <h5>Active Cases</h5>
                         </div>
                     </div>
                 </div>
@@ -92,9 +82,32 @@
             <ng-container>
                 <div class="col-4"> <!-- Set col-12 class here -->
                     <div class="card">
+                        <div class="card-header text-center danger" routerLink="/manage-users">
+                            <span style="font-size: 32px;">{{highrisk}}</span>
+                            <br />
+                            <h5>High Risk</h5>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container>
+                <div class="col-4"> <!-- Set col-12 class here -->
+                    <div class="card">
+                        <div class="card-header text-center info" routerLink="/manage-therapist">
+                            <span style="font-size: 32px;">{{referred}}</span>
+                            <br />
+                            <h5>Referred to NHS</h5>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container>
+                <div class="col-4"> <!-- Set col-12 class here -->
+                    <div class="card">
                         <div class="card-header text-center warning" routerLink="/manage-sessions">
                             <span style="font-size: 32px;">{{funds}}</span>
-                            <br/>
+                            <br />
                             <h5>Waiting for Funds</h5>
                         </div>
                     </div>
@@ -105,7 +118,7 @@
                     <div class="card">
                         <div class="card-header text-center waiting" routerLink="/manage-sessions">
                             <span style="font-size: 32px;">{{counsellor}}</span>
-                            <br/>
+                            <br />
                             <h5>Waiting for Counsellor</h5>
                         </div>
                     </div>
@@ -116,13 +129,13 @@
                     <div class="card">
                         <div class="card-header text-center success" routerLink="/manage-appointments">
                             <span style="font-size: 32px;">{{closed}}</span>
-                            <br/>
+                            <br />
                             <h5>Total Success</h5>
                         </div>
                     </div>
                 </div>
             </ng-container>
         </div>
-        
+
     </div>
 </div>

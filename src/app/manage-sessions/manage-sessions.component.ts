@@ -22,10 +22,14 @@ export class ManageSessionsComponent implements OnInit {
   })
 
   callsesion() {
-    this.http.post("https://whizbang-codefest-api.azurewebsites.net/sessions/7/get_details", { headers: this.header })
+    this.http.post("https://whizbang-codefest-api.azurewebsites.net/sessions/6/get_details", { headers: this.header })
       .subscribe({
         next: (data) => {
-          this.details = data
+          if (data != undefined) {
+            this.details = data
+            console.log(this.details)
+          }
+
 
         },
         error: (error) => {

@@ -26,6 +26,11 @@ hr {
     color: white;
 }
 
+.info {
+    background-color: #34b5b8;
+    color: white;
+}
+
 .warning {
     background-color: darkcyan;
     color: white;

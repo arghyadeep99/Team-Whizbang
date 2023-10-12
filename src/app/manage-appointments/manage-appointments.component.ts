@@ -122,7 +122,7 @@ export class ManageAppointmentsComponent {
 
     let datetime = (new Date()).toISOString()
     let payload = { "body": { "checkout_time": datetime, "checkout_loc": location } }
-    this.http.post("https://whizbang-codefest-api.azurewebsites.net/sessions/7/checkout", payload, { headers: this.header })
+    this.http.post("https://whizbang-codefest-api.azurewebsites.net/sessions/6/checkout", payload, { headers: this.header })
       .subscribe({
         next: (data) => {
           console.log('Formatted Address: ' + data['features'][0]['properties']['address']['formattedAddress']);
@@ -138,7 +138,7 @@ export class ManageAppointmentsComponent {
     (document.getElementById('checkin') as HTMLInputElement).disabled = false;
     let datetime = (new Date()).toISOString()
     let payload = { "body": { "checkin_time": datetime, "checkin_loc": location } }
-    this.http.post("https://whizbang-codefest-api.azurewebsites.net/sessions/7/checkin", payload, { headers: this.header })
+    this.http.post("https://whizbang-codefest-api.azurewebsites.net/sessions/6/checkin", payload, { headers: this.header })
       .subscribe({
         next: (data) => {
           console.log('Formatted Address: ' + data['features'][0]['properties']['address']['formattedAddress']);
@@ -153,7 +153,7 @@ export class ManageAppointmentsComponent {
   callsos(location) {
     let datetime = (new Date()).toISOString()
     let payload = { "body": { "sos_time": datetime, "sos_loc": location } }
-    this.http.post("https://whizbang-codefest-api.azurewebsites.net/sessions/7/sos", payload, { headers: this.header })
+    this.http.post("https://whizbang-codefest-api.azurewebsites.net/sessions/6/sos", payload, { headers: this.header })
       .subscribe({
         next: (data) => {
           console.log('Formatted Address: ' + data['features'][0]['properties']['address']['formattedAddress']);
