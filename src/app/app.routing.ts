@@ -12,10 +12,12 @@ import { ManageAppointmentsComponent } from './manage-appointments/manage-appoin
 import { UserJourneyComponent } from './user-journey/user-journey.component';
 import { ManageTherapistComponent } from './manage-therapist/manage-therapist.component';
 import { ManageSessionsComponent } from './manage-sessions/manage-sessions.component';
+import { TherapistComponent } from './therapist/therapist.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
+  { path: 'therapist', component: TherapistComponent },
   { path: 'manage-appointments', component: ManageAppointmentsComponent },
   { path: 'manage-therapist', component: ManageTherapistComponent },
   { path: 'manage-sessions', component: ManageSessionsComponent },
@@ -34,7 +36,6 @@ const routes: Routes = [
       useHash: true
     })
   ],
-  exports: [
-  ],
+  exports: [],
 })
 export class AppRoutingModule { }

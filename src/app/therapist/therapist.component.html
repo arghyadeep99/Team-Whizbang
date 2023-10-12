@@ -1,0 +1,82 @@
+<div class="section section-buttons">
+    <div class="container">
+      
+        <div>
+            <div class="tim-title">
+                <h4 class="status-header">Add / Edit Therapist</h4>
+            </div>
+            <form (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Enter First Name</label>
+                            <input type="text" name="first_name" class="form-control" placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Enter Last Name</label>
+                            <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Enter Email Address</label>
+                            <input type="email" name="email" class="form-control" placeholder="Email Address">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Enter Phone Number</label>
+                            <input type="text" maxlength="10" name="phone_no" class="form-control" placeholder="Phone Number">
+                        </div>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" name="dob" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Date of Joining</label>
+                            <input type="date" name="user_created_date" class="form-control">
+                        </div>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Enter Location</label>
+                            <input type="text" name="location" class="form-control" placeholder="Location">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Enter Post Code</label>
+                            <input type="zip" maxlength="6" name="post_code" class="form-control" placeholder="Post Code">
+                        </div>
+                    </div>                
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label>Enter Tags (comma seperated)</label>
+                            <input type="text" name="tags" class="form-control" placeholder="Tags">
+                        </div>
+                    </div>               
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <button type="submit" class="btn btn-outline-primary btn-round float-right">Submit</button>
+                    </div>               
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

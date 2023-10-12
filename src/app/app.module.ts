@@ -16,6 +16,8 @@ import { ManageAppointmentsComponent } from './manage-appointments/manage-appoin
 import { UserJourneyComponent } from './user-journey/user-journey.component';
 import { ManageTherapistComponent } from './manage-therapist/manage-therapist.component';
 import { ManageSessionsComponent } from './manage-sessions/manage-sessions.component';
+import { TherapistComponent } from './therapist/therapist.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ManageSessionsComponent } from './manage-sessions/manage-sessions.compo
     ManageAppointmentsComponent,
     UserJourneyComponent,
     ManageTherapistComponent,
-    ManageSessionsComponent
+    ManageSessionsComponent,
+    TherapistComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { ManageSessionsComponent } from './manage-sessions/manage-sessions.compo
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
