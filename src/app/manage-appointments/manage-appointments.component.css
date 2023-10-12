@@ -5,3 +5,15 @@ h5 {
 .status-header {
     font-weight: 500;
 }
+
+.completed {
+    background-color: lightgray;
+}
+
+.active {
+    background-color: powderblue;
+}
+
+.upcoming {
+    background-color: navajowhite;
+}

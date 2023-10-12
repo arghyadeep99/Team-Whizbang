@@ -12,7 +12,7 @@
                 <ng-container *ngFor="let appointment of active">
                     <div class="col-4">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header active">
                                 <h5>{{ appointment.title }}</h5>
                             </div>
                             <div class="card-body">
@@ -37,7 +37,7 @@
                 <ng-container *ngFor="let appointment of upcoming">
                     <div class="col-4">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header upcoming">
                                 <h5>{{ appointment.title }}</h5>
                             </div>
                             <div class="card-body">
@@ -58,7 +58,7 @@
                 <ng-container *ngFor="let appointment of completed">
                     <div class="col-4">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header completed">
                                 <h5>{{ appointment.title }}</h5>
                             </div>
                             <div class="card-body">
