@@ -10,11 +10,15 @@ import { LandingComponent } from './examples/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { ManageAppointmentsComponent } from './manage-appointments/manage-appointments.component';
 import { UserJourneyComponent } from './user-journey/user-journey.component';
+import { ManageTherapistComponent } from './manage-therapist/manage-therapist.component';
+import { ManageSessionsComponent } from './manage-sessions/manage-sessions.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
   { path: 'manage-appointments', component: ManageAppointmentsComponent },
+  { path: 'manage-therapist', component: ManageTherapistComponent },
+  { path: 'manage-sessions', component: ManageSessionsComponent },
   { path: 'user-journey', component: UserJourneyComponent },
   { path: 'user-profile', component: ProfileComponent },
   { path: 'signup', component: SignupComponent },
