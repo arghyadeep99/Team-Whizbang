@@ -46,9 +46,9 @@ def connection_cursor():
     con = pymssql.connect(server=DB_HOST, database=DB_NAME, user=DB_USER, password=DB_PASSWORD)
     return con.cursor()
 
-@app.get("/helloworld")
-def test():
-    return {"Hello": "World"}
+# @app.get("/helloworld")
+# def test():
+#     return {"Hello": "World"}
 
 @app.get("/clients/{client_id}/get_all_cases")
 async def get_client_cases(client_id: int):
