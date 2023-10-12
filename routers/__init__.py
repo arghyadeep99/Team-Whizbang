@@ -1,0 +1,1 @@
+UPDATE [sessions] SET checkin_time='2023-01-04 01:00:00.000', checkin_loc='Pune, India' WHERE session_id=2

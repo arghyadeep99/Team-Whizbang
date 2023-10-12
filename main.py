@@ -51,6 +51,10 @@ def connection_cursor():
     con = pymssql.connect(server=DB_HOST, database=DB_NAME, user=DB_USER, password=DB_PASSWORD)
     return con.cursor()
 
+def post_connection_cursor():
+    con = pymssql.connect(server=DB_HOST, database=DB_NAME, user=DB_USER, password=DB_PASSWORD)
+    return con
+
 
 @app.get("/helloworld")
 def test():
@@ -148,39 +152,42 @@ async def get_therapist_details(user_id: int):
 #     return results
 
 
-# @app.post("/sessions/{session_id}/checkin")
-# def checkin_therapist(session_id: int, request: input_data):
-#     cur = connection_cursor()
-#     try:
-#         query = f"UPDATE [sessions] SET checkin_time=\'{request.body['checkin_time']}\', checkin_loc=\'{request.body['checkin_loc']}\' WHERE session_id={session_id}"
-#         print(query)
-#         cur.execute(query)
-#         results = cur.fetchall()
-#         for row in results:
-#             print(row)
-#         return results
-#     except Exception as err:
-#         print(f"Exception: {err}")
+@app.post("/sessions/{session_id}/checkin")
+def checkin_therapist(session_id: int, request: input_data):
+    con = post_connection_cursor()
+    cur = con.cursor()
+    try:
+        query = f"UPDATE [sessions] SET checkin_time='{request.body['checkin_time']}', checkin_loc='{request.body['checkin_loc']}' WHERE session_id={session_id}"
+        print(query)
+        cur.execute(query)
+        con.commit()
+    except Exception as err:
+        print(f"Exception: {err}")
 
 
-# @app.post("/sessions/{session_id}/checkout")
-# def checkout_therapist(session_id: int, request: input_data):
-#     cur = connection_cursor()
-#     cur.execute(f"UPDATE sessions SET checkout_time={request.body['checkout_time']}, checkout_loc={request.body['checkout_loc']} WHERE session_id={session_id}")
-#     results = cur.fetchall()
-#     for row in results:
-#         print(row)
-#     return results
+@app.post("/sessions/{session_id}/checkout")
+def checkout_therapist(session_id: int, request: input_data):
+    con = post_connection_cursor()
+    cur = con.cursor()
+    try:
+        query = f"UPDATE [sessions] SET checkout_time='{request.body['checkout_time']}', checkout_loc='{request.body['checkout_loc']}' WHERE session_id={session_id}"
+        cur.execute(query)
+        con.commit()
+    except Exception as err:
+        print(f"Exception: {err}")
 
 
-# @app.post("/sessions/{session_id}/sos")
-# def sos_therapist(session_id: int, request: input_data):
-#     cur = connection_cursor()
-#     cur.execute(f"UPDATE sessions SET sos_time={request.body['sos_time']}, sos_loc={request.body['sos_loc']} WHERE session_id={session_id}")
-#     results = cur.fetchall()
-#     for row in results:
-#         print(row)
-#     return results
+@app.post("/sessions/{session_id}/sos")
+def sos_therapist(session_id: int, request: input_data):
+    con = post_connection_cursor()
+    cur = con.cursor()
+    try:
+        query = f"UPDATE sessions SET sos_time='{request.body['sos_time']}', sos_loc='{request.body['sos_loc']}' WHERE session_id={session_id}"
+        cur.execute(query)
+        con.commit()
+    except Exception as err:
+        print(f"Exception: {err}")
+
 
 
 @app.get("/cases/referred")
