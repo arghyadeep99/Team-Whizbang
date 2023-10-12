@@ -19,6 +19,7 @@ url_object = URL.create(
     username=DB_USER,
     password=DB_PASSWORD,  # plain (unescaped) text
     host=DB_HOST,
+    port=DB_PORT,
     database=DB_NAME,
 )
 
