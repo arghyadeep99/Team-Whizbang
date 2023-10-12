@@ -71,7 +71,7 @@
                 <div class="col-6"> <!-- Set col-12 class here -->
                     <div class="card">
                         <div class="card-header text-center danger" routerLink="/manage-users">
-                            <span style="font-size: 32px;">20</span>
+                            <span style="font-size: 32px;">{{highrisk}}</span>
                             <br/>
                             <h5>High Risk</h5>
                         </div>
@@ -82,7 +82,7 @@
                 <div class="col-6"> <!-- Set col-12 class here -->
                     <div class="card">
                         <div class="card-header text-center secondary" routerLink="/manage-therapist">
-                            <span style="font-size: 32px;">20</span>
+                            <span style="font-size: 32px;">{{referred}}</span>
                             <br/>
                             <h5>Referred to NHS</h5>
                         </div>
@@ -93,7 +93,7 @@
                 <div class="col-4"> <!-- Set col-12 class here -->
                     <div class="card">
                         <div class="card-header text-center warning" routerLink="/manage-sessions">
-                            <span style="font-size: 32px;">20</span>
+                            <span style="font-size: 32px;">{{funds}}</span>
                             <br/>
                             <h5>Waiting for Funds</h5>
                         </div>
@@ -104,7 +104,7 @@
                 <div class="col-4"> <!-- Set col-12 class here -->
                     <div class="card">
                         <div class="card-header text-center waiting" routerLink="/manage-sessions">
-                            <span style="font-size: 32px;">20</span>
+                            <span style="font-size: 32px;">{{counsellor}}</span>
                             <br/>
                             <h5>Waiting for Counsellor</h5>
                         </div>
@@ -115,7 +115,7 @@
                 <div class="col-4"> <!-- Set col-12 class here -->
                     <div class="card">
                         <div class="card-header text-center success" routerLink="/manage-appointments">
-                            <span style="font-size: 32px;">20</span>
+                            <span style="font-size: 32px;">{{closed}}</span>
                             <br/>
                             <h5>Total Success</h5>
                         </div>
