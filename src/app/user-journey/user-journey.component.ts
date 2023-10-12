@@ -78,7 +78,7 @@ export class UserJourneyComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.http.get("https://whizbang-codefest-api.azurewebsites.net/helloworld").subscribe(data => {
+    this.http.get("https://whizbang-codefest-api.azurewebsites.net/helloworld", { headers: this.header }).subscribe(data => {
       if (data != undefined) {
         console.log(data)
       }
