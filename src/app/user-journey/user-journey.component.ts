@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 
 
 
@@ -67,10 +68,21 @@ export class UserJourneyComponent implements OnInit {
     },
   ];
   userJourney = 1
-  constructor() { }
+  header = new HttpHeaders({
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Access-Control-Allow-Origin": "https://whizbang-codefest-api.azurewebsites.net",
+    "Access-Control-Allow-Headers": "*"
+  })
+  constructor(private http: HttpClient) { }
 
 
   ngOnInit(): void {
+    this.http.get("https://whizbang-codefest-api.azurewebsites.net/helloworld").subscribe(data => {
+      if (data != undefined) {
+        console.log(data)
+      }
+    })
   }
 
   journeyStatus(status) {

@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -14,6 +13,7 @@ import { ExamplesModule } from './examples/examples.module';
 import { ReferralComponent } from './referral/referral.component';
 import { ManageAppointmentsComponent } from './manage-appointments/manage-appointments.component';
 import { UserJourneyComponent } from './user-journey/user-journey.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import { UserJourneyComponent } from './user-journey/user-journey.component';
   imports: [
     BrowserModule,
     NgbModule,
+    HttpClientModule,
     FormsModule,
     RouterModule,
     ComponentsModule,
