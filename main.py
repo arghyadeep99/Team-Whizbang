@@ -53,9 +53,18 @@ def test():
 @app.get("/clients/{client_id}/get_all_cases")
 async def get_client_cases(client_id: int):
     cur = connection_cursor()
-    cur.execute(f'SELECT top(1) * FROM cases WHERE user_id={client_id} order by updated_at asc')
-    results = cur.fetchall()    
+    cur.execute(f'SELECT * FROM cases WHERE user_id={client_id} order by updated_at asc')
+    results = cur.fetchall()
     for row in results:
-            print(row)
+        print(row)
     return results
 
+
+@app.get("/clients/{client_id}/get_details")
+async def get_client_details(client_id: int):
+    cur = connection_cursor()
+    cur.execute(f'SELECT * FROM client WHERE user_id={client_id}')
+    results = cur.fetchall()    
+    for row in results:
+        print(row)
+    return results
