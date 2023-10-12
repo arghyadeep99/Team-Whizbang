@@ -68,3 +68,13 @@ async def get_client_details(client_id: int):
     for row in results:
         print(row)
     return results
+
+
+@app.get("/cases/{case_id}/get_details")
+async def get_client_details(case_id: int):
+    cur = connection_cursor()
+    cur.execute(f'SELECT * FROM cases WHERE case_id={case_id}')
+    results = cur.fetchall()    
+    for row in results:
+        print(row)
+    return results
