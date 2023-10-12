@@ -32,7 +32,3 @@ async def read_root():
 @app.get("/items/{item_id}")
 async def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
-
-@app.get("/client/{client_id}/get_all_cases")
-async def get_client_cases(client_id: int, db: Session = Depends(get_db)):
-    return db.query(models.Case)
