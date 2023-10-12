@@ -1,12 +1,14 @@
 from typing import Union
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 
 from fastapi.middleware.cors import CORSMiddleware
 
-from db.database import Base, SessionLocal
+from sqlalchemy.orm import Session
 
-app = FastAPI()
+import pymssql
+
+app = FastAPI(version="1.0.2")
 
 origins = [
     "https://codefest-ui.azurewebsites.net",
@@ -25,11 +27,27 @@ app.add_middleware(
 )
 
 
+# async def get_db():
+#     db = SessionLocal()
+#     try:
+#         yield db
+#     finally:
+#         db.close()
+
+
 @app.get("/helloworld")
-async def read_root():
+def test():
     return {"Hello": "World"}
 
+@app.get("/clients/{client_id}/get_all_cases")
+def get_client_cases(client_id: int):
+    con = pymssql.connect(server='whizbang-db-server.database.windows.net', database='whizbang-database', user='whizbangadmin', password='WA@123456')
+    cur = con.cursor()
+    # res = cur.execute(f'SELECT * FROM dbo.cases WHERE user_id={client_id}')
+    res = cur.execute("SELECT Distinct TABLE_NAME FROM information_schema.TABLES")
+    print(res)
+    results = res.fetchall()    
+    for row in results:
+            print(row)
+    return results
 
-@app.get("/items/{item_id}")
-async def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
