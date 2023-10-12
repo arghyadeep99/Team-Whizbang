@@ -12,6 +12,8 @@ DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
 DB_NAME = os.getenv("DB_NAME")
 
+print(DB_NAME)
+
 from sqlalchemy import URL
 
 url_object = URL.create(
@@ -19,7 +21,6 @@ url_object = URL.create(
     username=DB_USER,
     password=DB_PASSWORD,  # plain (unescaped) text
     host=DB_HOST,
-    port=DB_PORT,
     database=DB_NAME,
 )
 

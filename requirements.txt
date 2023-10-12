@@ -4,4 +4,4 @@ sqlalchemy
 pydantic
 alembic
 python-dotenv
-mysql-connector-python
+pymssql
