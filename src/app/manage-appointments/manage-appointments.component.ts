@@ -82,7 +82,7 @@ export class ManageAppointmentsComponent {
     this.http.get(apiUrl)
       .subscribe({
         next: (data) => {
-          console.log(data['features'][0]['properties']['address']['formattedAddress']);
+          console.log('Formatted Address: '+ data['features'][0]['properties']['address']['formattedAddress']);
         },
         error: (error) => {
           console.error('Error while performing reverse geocoding:', error);
