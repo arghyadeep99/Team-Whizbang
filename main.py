@@ -4,7 +4,7 @@ from fastapi import Depends, FastAPI
 
 from fastapi.middleware.cors import CORSMiddleware
 
-from sqlalchemy.orm import Session
+# from sqlalchemy.orm import Session
 
 import pymssql
 
@@ -40,13 +40,13 @@ def test():
     return {"Hello": "World"}
 
 @app.get("/clients/{client_id}/get_all_cases")
-def get_client_cases(client_id: int):
+async def get_client_cases(client_id: int):
     con = pymssql.connect(server='whizbang-db-server.database.windows.net', database='whizbang-database', user='whizbangadmin', password='WA@123456')
     cur = con.cursor()
-    # res = cur.execute(f'SELECT * FROM dbo.cases WHERE user_id={client_id}')
-    res = cur.execute("SELECT Distinct TABLE_NAME FROM information_schema.TABLES")
-    print(res)
-    results = res.fetchall()    
+    cur.execute(f'SELECT top(1) * FROM cases WHERE user_id={client_id} order by updated_at asc')
+    # cur.execute("SELECT Distinct TABLE_NAME FROM information_schema.TABLES")
+    # print(res)
+    results = cur.fetchall()    
     for row in results:
             print(row)
     return results
