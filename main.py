@@ -56,9 +56,9 @@ def post_connection_cursor():
     return con
 
 
-# @app.get("/helloworld")
-# def test():
-#     return {"Hello": "World"}
+@app.get("/helloworld")
+def test():
+    return {"Hello": "World"}
 
 
 @app.get("/clients/{client_id}/get_all_cases")
