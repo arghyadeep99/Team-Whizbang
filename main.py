@@ -12,6 +12,7 @@ origins = [
     "https://codefest-ui.azurewebsites.net",
     "http://localhost",
     "http://localhost:8000",
+    "https://localhost:4200"
 ]
 
 
