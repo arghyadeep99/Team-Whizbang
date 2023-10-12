@@ -68,6 +68,9 @@ export class UserJourneyComponent implements OnInit {
     },
   ];
   userJourney = 1
+  user_details: any
+  active_cases: any[]
+  closed_cases: any[]
   header = new HttpHeaders({
     "Content-Type": "application/json",
     "Accept": "application/json",
@@ -78,9 +81,20 @@ export class UserJourneyComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.http.get("https://whizbang-codefest-api.azurewebsites.net/helloworld", { headers: this.header }).subscribe(data => {
+    this.http.get("https://whizbang-codefest-api.azurewebsites.net/clients/4/get_all_cases", { headers: this.header }).subscribe(data => {
       if (data != undefined) {
-        console.log(data)
+        this.user_details = data
+        console.log(this.user_details)
+        // for (let detail in this.user_details) {
+        //   if (detail[3] == 'waiting for funds' || detail[3] == 'new' || detail[3] == 'clinical traige') {
+        //     this.active_cases.push(detail)
+        //     console.log(this.active_cases)
+        //   }
+        //   if (detail[3] == 'closed' || detail[3] == 'referred to nhs') {
+        //     this.closed_cases.push(detail)
+        //     console.log(this.active_cases)
+        //   }
+        // }
       }
     })
   }
