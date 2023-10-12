@@ -1,4 +1,4 @@
-.card-header {
+.primary {
     background-color: #1c468a;
     color: white;
 }
@@ -9,4 +9,29 @@
 
 hr {
     border-color: coral;
+}
+
+.danger {
+    background-color: darkred;
+    color: white;
+}
+
+.waiting {
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+.secondary {
+    background-color: blueviolet;
+    color: white;
+}
+
+.warning {
+    background-color: darkcyan;
+    color: white;
+}
+
+.success {
+    background-color: darkgreen;
+    color: white;
 }
