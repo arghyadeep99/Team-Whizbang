@@ -2,7 +2,7 @@ import json
 from typing import Union
 
 from fastapi import Depends, FastAPI
-
+from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 # from sqlalchemy.orm import Session
@@ -43,6 +43,10 @@ DB_NAME = os.getenv("DB_NAME")
 #     finally:
 #         db.close()
 
+
+class input_data(BaseModel):
+    body: dict
+
 def connection_cursor():
     con = pymssql.connect(server=DB_HOST, database=DB_NAME, user=DB_USER, password=DB_PASSWORD)
     return con.cursor()
@@ -67,6 +71,16 @@ async def get_client_all_cases(client_id: int):
 async def get_all_session_details(session_id: int):
     cur = connection_cursor()
     cur.execute(f'SELECT * FROM sessions WHERE session_id={session_id}')
+    results = cur.fetchall()    
+    for row in results:
+        print(row)
+    return results
+
+
+@app.get("/users/{user_id}/get_details")
+async def get_user_details(user_id: int):
+    cur = connection_cursor()
+    cur.execute(f'SELECT * FROM users WHERE user_id={user_id}')
     results = cur.fetchall()    
     for row in results:
         print(row)
@@ -122,3 +136,98 @@ async def get_therapist_details(user_id: int):
         print(row)
     return results
 
+
+@app.post("/cases/{case_id}/therapist/{user_id}")
+async def create_adhoc_session(request: Request):
+    body = await request.json()
+    cur = connection_cursor()
+    cur.execute(f'INSERT INTO sessions VALUES ()')
+    results = cur.fetchall()    
+    for row in results:
+        print(row)
+    return results
+
+
+@app.post("/sessions/{session_id}/checkin")
+def checkin_therapist(session_id: int, request: input_data):
+    cur = connection_cursor()
+    try:
+        query = f"UPDATE [sessions] SET checkin_time=\'{request.body['checkin_time']}\', checkin_loc=\'{request.body['checkin_loc']}\' WHERE session_id={session_id}"
+        print(query)
+        cur.execute(query)
+        results = cur.fetchall()
+        for row in results:
+            print(row)
+        return results
+    except Exception as err:
+        print(f"Exception: {err}")
+
+
+@app.post("/sessions/{session_id}/checkout")
+def checkout_therapist(session_id: int, request: input_data):
+    cur = connection_cursor()
+    cur.execute(f"UPDATE sessions SET checkout_time={request.body['checkout_time']}, checkout_loc={request.body['checkout_loc']} WHERE session_id={session_id}")
+    results = cur.fetchall()
+    for row in results:
+        print(row)
+    return results
+
+
+@app.post("/sessions/{session_id}/sos")
+def sos_therapist(session_id: int, request: input_data):
+    cur = connection_cursor()
+    cur.execute(f"UPDATE sessions SET sos_time={request.body['sos_time']}, sos_loc={request.body['sos_loc']} WHERE session_id={session_id}")
+    results = cur.fetchall()
+    for row in results:
+        print(row)
+    return results
+
+
+@app.get("/cases/referred")
+async def cases_referred():
+    cur = connection_cursor()
+    cur.execute(f"SELECT COUNT([dbo].[cases].[case_id]) FROM [dbo].[cases] where [dbo].[cases].[case_status] = 'referred to nhs'")
+    results = cur.fetchall()
+    for row in results:
+        print(row)
+    return results
+
+
+@app.get("/cases/closed")
+async def cases_closed():
+    cur = connection_cursor()
+    cur.execute(f"SELECT COUNT([dbo].[cases].[case_id]) FROM [dbo].[cases] where [dbo].[cases].[case_status] = 'closed'")
+    results = cur.fetchall()
+    for row in results:
+        print(row)
+    return results
+
+
+@app.get("/cases/funds")
+async def cases_funds():
+    cur = connection_cursor()
+    cur.execute(f"SELECT COUNT([dbo].[cases].[case_id]) FROM [dbo].[cases] where [dbo].[cases].[case_status] = 'waiting for funds'")
+    results = cur.fetchall()
+    for row in results:
+        print(row)
+    return results
+
+
+@app.get("/cases/counsellor")
+async def cases_counsellor():
+    cur = connection_cursor()
+    cur.execute(f"SELECT COUNT([dbo].[cases].[case_id]) FROM [dbo].[cases] where [dbo].[cases].[case_status] = 'waiting for counsellor'")
+    results = cur.fetchall()
+    for row in results:
+        print(row)
+    return results
+
+
+@app.get("/cases/highrisk")
+async def cases_highrisk():
+    cur = connection_cursor()
+    cur.execute(f"SELECT COUNT(*) FROM [dbo].[client] FULL OUTER JOIN (SELECT user_id, lateststatusdate = max(updated_at) FROM [dbo].[cases]  group by user_id) as a ON [dbo].[client].[user_id] = a.[user_id] JOIN [dbo].[cases] ON [dbo].[client].[user_id] = [dbo].[cases].[user_id] WHERE total_riskscore > 70 and [dbo].[cases].[case_status] in ('waiting for funds')")
+    results = cur.fetchall()
+    for row in results:
+        print(row)
+    return results
