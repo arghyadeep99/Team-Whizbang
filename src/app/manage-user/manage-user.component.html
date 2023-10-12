@@ -3,12 +3,12 @@
         <div class="row">
             <div class="col-8">
                 <div class="tim-title">
-                    <h3>Manage Therapists</h3>
+                    <h3>Manage Users</h3>
                 </div>
             </div>
 
             <div class="col-4 align-self-end">
-                <button type="button" class="btn btn-outline-primary btn-round float-right">Add New Therapist</button>
+                <button type="button" class="btn btn-outline-primary btn-round float-right">Add New User</button>
             </div>
         </div>
         <table class="table table-bordered">
@@ -25,14 +25,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let therapist of therapists">
-                    <td>{{ therapist.first_name }} {{ therapist.last_name }}</td>
-                    <td>{{ therapist.email }}</td>
-                    <td>{{ therapist.phone_no }}</td>
-                    <td>{{ therapist.location }}, {{ therapist.post_code }}</td>
-                    <td>{{ therapist.user_created_date }}</td>
-                    <td>{{ therapist.tags }}</td>
-                    <td>{{ therapist.active }}</td>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.first_name }} {{ user.last_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.phone_no }}</td>
+                    <td>{{ user.location }}, {{ user.post_code }}</td>
+                    <td>{{ user.user_created_date }}</td>
+                    <td>{{ user.tags }}</td>
+                    <td>{{ user.active }}</td>
                     <td>
                         <a><i class="fa fa-edit" style="font-size:18px"></i></a>
                         <a><i class="fa fa-trash ms-3" style="font-size:18px; color:red; margin-left: 8px"></i></a>

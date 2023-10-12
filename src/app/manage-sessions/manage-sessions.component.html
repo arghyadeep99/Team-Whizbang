@@ -12,13 +12,35 @@
                 <ng-container *ngFor="let appointment of active">
                     <div class="col-4">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header primary">
                                 <h5>{{ appointment.title }}</h5>
                             </div>
                             <div class="card-body">
                                 <p class="card-text">Therapist: <b>{{ appointment.therapistName }}</b></p>
                                 <p class="card-text">Start Date: <b>{{ appointment.dateTime | date:'medium' }}</b></p>
                                 <p class="card-text">End Date: <b>{{ appointment.endTime | date:'medium' }}</b></p>
+                                <p class="card-text">Checked IN: <b>{{ appointment.endTime | date:'medium' }}</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="tim-title">
+                <h4 class="status-header">SOS Sessions</h4>
+            </div>
+            <div class="row">
+                <ng-container *ngFor="let appointment of sos">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-header tomato">
+                                <h5>{{ appointment.title }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Therapist: <b>{{ appointment.therapistName }}</b></p>
+                                <p class="card-text">Start Date: <b>{{ appointment.dateTime | date:'medium' }}</b></p>
+                                <p class="card-text">End Date: <b>{{ appointment.endTime | date:'medium' }}</b></p>
+                                <p class="card-text">Checked IN: <b>{{ appointment.endTime | date:'medium' }}</b></p>
                             </div>
                         </div>
                     </div>

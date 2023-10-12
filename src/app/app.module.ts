@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ManageTherapistComponent } from './manage-therapist/manage-therapist.component';
 import { ManageSessionsComponent } from './manage-sessions/manage-sessions.component';
+import { TherapistComponent } from './therapist/therapist.component';
+
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
@@ -32,6 +34,7 @@ import { AddFundsComponent } from './add-funds/add-funds.component';
     UserJourneyComponent,
     ManageTherapistComponent,
     ManageSessionsComponent,
+    TherapistComponent,
     UserDashboardComponent,
     AdminDashboardComponent,
     ManageUserComponent,
@@ -45,6 +48,8 @@ import { AddFundsComponent } from './add-funds/add-funds.component';
     RouterModule,
     ComponentsModule,
     ExamplesModule,
+    AppRoutingModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

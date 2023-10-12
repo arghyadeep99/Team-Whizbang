@@ -1,0 +1,12 @@
+.card-header {
+    background-color: #1c468a;
+    color: white;
+}
+
+.fa.fa-clock::before {
+    content: "\f017";
+}
+
+hr {
+    border-color: coral;
+}
