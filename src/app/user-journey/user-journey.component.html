@@ -7,27 +7,117 @@
                     <br />
                 </h3>
             </div>
-            <div class="row">
-                <div class="col-3">
-                    <button type="button" (click)="journeyStatus(1)" class="btn btn-warning btn-round"><i
+            <div class="row" >
+                <div class="col-md-4 d-flex justify-content-center" >
+                    <button type="button" (click)="journeyStatus(1)" class="btn btn-info btn-round"><i
                             class="nc-icon nc-book-bookmark"></i> Case Registered</button>
                 </div>
-                <div class="col-3">
-                    <button type="button" (click)="journeyStatus(2)" class="btn btn-primary btn-round"><i class="nc-icon nc-book-bookmark"></i>
-                        Case Sessions </button>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <button type="button" (click)="journeyStatus(2)" class="btn btn-primary btn-round"><i
+                            class="nc-icon nc-book-bookmark"></i>
+                        Session Details</button>
                 </div>
-                <div class="col-3">
-                    <button type="button" (click)="journeyStatus(2)" class="btn btn-info btn-round"><i class="nc-icon nc-book-bookmark"></i>
-                        Session Feedback</button>
-                </div>
-                <div class="col-3">
-                    <button type="button" (click)="journeyStatus(4)" class="btn btn-success btn-round"><i class="nc-icon nc-book-bookmark"></i>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <button type="button" (click)="journeyStatus(3)" class="btn btn-success btn-round"><i
+                            class="nc-icon nc-book-bookmark"></i>
                         Case Closed</button>
                 </div>
             </div>
+            <div *ngIf="userJourney == 1">
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto text-center">
+                                <h4 class="tim-title">Registration Date: </h4>
+                                <p class="description">Upcoming Sessions Date: </p>
+                                <p class="description">Number of Sessions registered: 10</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="userJourney == 2">
 
-            <div *ngIf="userJourney == 4">
-                <img src="assets/img/case-closed.png" alt="Case Closed" class="center" style>
+                <div class="section section-buttons">
+                    <div>
+                        <div class="tim-title">
+                            <h4 class="status-header">Active</h4>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let appointment of active">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>{{ appointment.title }}</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text">Date & Time: {{ appointment.dateTime |
+                                                date:'medium' }}</p>
+                                            <p class="card-text">Therapist: {{ appointment.therapist |
+                                                date:'medium' }}</p>
+                                            <p class="card-text">Feedback: {{ appointment.feedback |
+                                                date:'medium' }}</p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <hr />
+                        <div class="tim-title">
+                            <h4 class="status-header">Upcoming</h4>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let appointment of upcoming">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>{{ appointment.title }}</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text">Date & Time: {{ appointment.dateTime |
+                                                date:'medium' }}</p>
+                                            <p class="card-text">Therapist: {{ appointment.therapist |
+                                                date:'medium' }}</p>
+                                            <p class="card-text">Feedback: {{ appointment.feedback |
+                                                date:'medium' }}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <hr />
+                        <div class="tim-title">
+                            <h4 class="status-header">Completed</h4>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let appointment of completed">
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>{{ appointment.title }}</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text">Date & Time: {{ appointment.dateTime |
+                                                date:'medium' }}</p>
+                                            <p class="card-text">Therapist: {{ appointment.therapist |
+                                                date:'medium' }}</p>
+                                            <p class="card-text">Feedback: {{ appointment.feedback |
+                                                date:'medium' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+           
+            <div *ngIf="userJourney == 3">
+                <img src="../../assets/img/case-closed.png" alt="Case Closed" class="center" style>
 
             </div>
         </div>
